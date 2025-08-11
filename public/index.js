@@ -13,6 +13,7 @@ let needsRender = true;
 let gameTimer = null;
 let targetColor = null;
 let leaderboard = [];
+let count = 5;
 
 $("#newgame").hide();
 
@@ -251,9 +252,10 @@ $("#newgame").click(function () {
 // load image on game-start pls - yes ok
 
 socket.on("game-start", (data) => {
+    image = {};
     processImage(data.imageUrl)
 
-    let count = data.countdown;
+    count = data.countdown;
     targetColor = data.targetColor;
     $("#target").addClass("colorbox");
     $("#target").css("background-color", `rgb(${targetColor.r}, ${targetColor.g}, ${targetColor.b})`);
@@ -272,14 +274,18 @@ socket.on("game-start", (data) => {
 socket.on("game-update", (data) => {
     if (image == null) {
         processImage(data.imageUrl);
+        count = -1
         $("#info").text("Game joined!");
-
+        $("#image-canvas").css("opacity", 1);
     }
-    $("#image-canvas").css("opacity", 1);
     targetColor = data.targetColor;
     $("#target").addClass("colorbox");
     $("#target").css("background-color", `rgb(${targetColor.r}, ${targetColor.g}, ${targetColor.b})`);
-    startGameTimer(data.endTime)
+    if (count == -1) {
+        startGameTimer(data.endTime)
+        $("#image-canvas").css("opacity", 1);
+
+    }
     leaderboard = data.leaderboard
     if (leaderboard.length > 10) {
         leaderboard = leaderboard.slice(0, 10);
@@ -293,7 +299,7 @@ socket.on("game-update", (data) => {
         $("#leaderboard").append(`
             <div class="l-entry">
             <p>${leaderboard[i].name}</p>
-            <p>${(Math.round(leaderboard[i].points) == 10000 ? "-" : Math.round(leaderboard[i].points * 10)/10)}</p>
+            <p>${(Math.round(leaderboard[i].points) == 10000 ? "-" : Math.round(leaderboard[i].points * 10) / 10)}</p>
             </div>`)
     }
 });
@@ -305,4 +311,8 @@ socket.on("game-end", (data) => {
     $("#newgame").show();
 
     $("#info").text("Game ended!");
+    if (gameTimer) {
+        clearInterval(gameTimer);
+        gameTimer = null;
+    }
 });
