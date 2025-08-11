@@ -8,7 +8,7 @@ const { createCanvas, loadImage } = require("canvas");
 
 const PLAYER_THRESH = 2;
 const COUNTDOWN_SECONDS = 5;
-const GAME_DURATION = 10 * 1000;
+const GAME_DURATION = 60 * 1000;
 
 app.use(express.static('public'));
 
