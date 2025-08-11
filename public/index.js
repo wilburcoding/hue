@@ -323,7 +323,7 @@ socket.on("game-end", (data) => {
     $("#newgame").show();
 
     $("#info").text("Game ended!");
-    $("#target").html("(" + targetColor.r + "," + targetColor.g + "," + targetColor.b + ")");
+    $("#target").html("<p>(" + targetColor.r + "," + targetColor.g + "," + targetColor.b + ")</p>");
     if (gameTimer) {
         clearInterval(gameTimer);
         gameTimer = null;
