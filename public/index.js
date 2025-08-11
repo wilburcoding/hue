@@ -261,6 +261,8 @@ $("#newgame").click(function () {
 // load image on game-start pls - yes ok
 
 socket.on("game-start", (data) => {
+    $("#target").html("")
+
     image = {};
     processImage(data.imageUrl)
 
@@ -281,6 +283,7 @@ socket.on("game-start", (data) => {
 });
 
 socket.on("game-update", (data) => {
+    $("#target").html("")
     if (image == null) {
         processImage(data.imageUrl);
         count = -1
@@ -320,6 +323,7 @@ socket.on("game-end", (data) => {
     $("#newgame").show();
 
     $("#info").text("Game ended!");
+    $("#target").html("(" + targetColor.r + "," + targetColor.g + "," + targetColor.b + ")");
     if (gameTimer) {
         clearInterval(gameTimer);
         gameTimer = null;
