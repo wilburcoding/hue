@@ -82,13 +82,11 @@ async function maybeStartGame(countdown = COUNTDOWN_SECONDS) {
   if (Object.keys(players).length < PLAYER_THRESH) return;
   console.log("Starting game...");
 
-  const ttttttt = Date.now();
-  let i = Math.floor(Math.random() * 5) + 1;
+  let i = Math.floor(Math.random() * 6) + 1;
 
   const randImage = "/images/img" + i + ".jpg"
   console.log("Selected image: " + randImage);
   const targetColor = await generateTargetColor("public" + randImage)
-  console.log(`Target color generated in ${Date.now() - ttttttt}ms: ${JSON.stringify(targetColor)}`);
   gameState = {
     imageUrl: randImage,
     targetColor,
@@ -138,6 +136,6 @@ function calculateScore(color1, color2) {
   );
 }
 
-server.listen(3000, () => {
-  console.log('listening on *:3000');
+server.listen(45705, () => {
+  console.log('listening on *:45705');
 });

@@ -1,19 +1,11 @@
 # hue
 
-## Backend TODO
+A competitive game about colors.
 
-- [] Handle user connecting and disconnecting
-- [] Create games when threshold reached (with countdown)
-- [] Emit game information to active players (etc. image url, live leaderboard)
-- [] 
+<a href="https://shipwrecked.hackclub.com/?t=ghrm" target="_blank">
+    <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/739361f1d440b17fc9e2f74e49fc185d86cbec14_badge.png" alt="Shipwrecked badge" style="max-width: 250px;">
+</a>
 
-## Backend Events
+## Features
 
-Server emits:
-- "game-start" `{"countdown": 5, ...state}`
-- "game-update" `{"imageUrl": "...", "targetColor": {"r", ...}, "leaderboard": [{"name": "", "points": 100}], "endTime": 1754871193132}`
-- "game-end" `{"leaderboard": [...]}`
-
-Client emits:
-- "join" `{"name": ""}` 
-- "color-change" `{"color": {"r": 255, "g": 0, "b": 15}}`
+-
