@@ -1,4 +1,4 @@
-# hue
+# Hue
 
 A competitive game about colors.
 
@@ -8,4 +8,11 @@ A competitive game about colors.
 
 ## Features
 
--
+-   Users can start, join and leave games
+-   Select image pixels to collect colors
+-   Mix colours to try and make the target color
+-   Realtime leaderboard
+
+## Like this project?
+
+If you find this project interesting or useful, consider giving it a star ⭐️!

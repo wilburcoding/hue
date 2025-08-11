@@ -6,8 +6,8 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 const { createCanvas, loadImage } = require("canvas");
 
-const PLAYER_THRESH = 1;
-const COUNTDOWN_SECONDS = 1;
+const PLAYER_THRESH = 2;
+const COUNTDOWN_SECONDS = 5;
 const GAME_DURATION = 60 * 1000;
 
 app.use(express.static('public'));
