@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"
+        integrity="sha256-9zljDKpE/mQxmaR4V2cGVaQ7arF3CcXxarvgr7Sj8Uc=" crossorigin="anonymous"></script>
+    <title>Hue</title>
+</head>
+
+<body>
+    <div class="top-container">
+        <div class="content-container">
+            <canvas id="image-canvas" height="80vh" width="80vw">
+
+            </canvas>
+        </div>
+        <div class="side-bar">
+            <h1 style="font-size:70px;margin-top:10px;line-height:72px">Hue</h1>
+            <p style="font-size:20px;margin-top:0px;">A competitive game of colors</p>
+            <input type="text" placeholder="Username" id="username"
+                style="padding:5px;font-size:20px;margin-top:4px;width:80%;" />
+            <button style="padding:5px;font-size:20px;margin-top:4px;width:40%;" id="join">Join</button>
+            <p id="info" style="font-size:15px;margin-top:0px;"></p>
+            <button style="padding:5px;font-size:20px;margin-top:4px;width:40%;" id="newgame">New
+                Game</button>
+            <div style="display:flex;flex-direction: row;width:90%;margin-top:20px;align-items: center;" id="info-container">
+                <div
+                    style="width:50%;height:15vh;display:flex;justify-content:flex-start;align-items:center;flex-direction: column;">
+                    <p>Target</p>
+                    <div id="target" style="cursor:not-allowed"></div>
+
+                </div>
+                <div
+                    style="width:50%;height:15vh;display:flex;justify-content:flex-start;align-items:center;flex-direction: column;">
+                    <p id="bestscore">Best</p>
+                    <div id="best" style="cursor:not-allowed"></div>
+
+                </div>
+
+            </div>
+            <div style="display:flex;width:90%;flex-direction:column;margin-top:10px;border-bottom:1px solid black;"
+                id="l-container">
+                <h1>Leaderboard</h1>
+                <div id="leaderboard">
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="bottom-container">
+        <div style="position:relative;padding:4px;background-color: white;opacity:0;margin-right:10px;" id="count"><p style="font-size:15px;" id="count-text">0/20</p></div>
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./index.js" defer></script>
+</body>
+
+</html>

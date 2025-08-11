@@ -1,0 +1,139 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  color: black;
+  user-select: none
+}
+
+.content-container {
+  width: 80vw;
+  height: 80vh;
+  border: 2px solid black;
+  background-color: rgb(197, 197, 197);
+}
+
+.image-canvas {
+  width: 80vw;
+  height: 80vh;
+}
+
+.colorbox {
+  height: 10vh;
+  width: 10vh;
+  margin: 5px;
+  border: solid 1px black;
+  border-radius: 5px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.colorbox p {
+  text-align:center;
+  font-size:10px;
+  background-color: white;
+  padding:3px;
+  border-radius:3px;
+}
+
+.side-bar {
+  width: 20vw;
+  height: 80vh;
+  padding: 10px;
+  background-color: rgb(255, 249, 237);
+}
+
+.top-container {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.bottom-container {
+  height: 20vh;
+  width: 100vw;
+  background-color: rgb(255, 249, 237);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  overflow-x: scroll;
+  padding-left: 5vh;
+  position:relative;
+  overflow: scroll;
+}
+#count {
+  border:solid 1.4px black;
+  border-radius:2px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#info-container {
+  opacity:0;
+}
+#l-container {
+  opacity:0;
+}
+.l-entry {
+  width: 100%;
+  height: 30;
+  border: 1px solid black;
+  border-bottom: none;
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected {
+  border: solid 4px rgb(117, 117, 117);
+}
+
+input[type='text'] {
+  outline: none;
+  border: solid 1.4px black;
+}
+
+input[type='text']:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button {
+  background-color: white;
+  outline: none;
+  border: solid 1.4px black;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  scale: 1.05;
+}
+
+button:active {
+  scale: 0.95;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
