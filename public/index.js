@@ -168,6 +168,15 @@ imageCanvas.addEventListener("click", (e) => {
             } else {
                 $("#count-text").css("color", "black");
             }
+            let sortedKeys = Object.keys(colorlist).sort(function (a, b) { return colorlist[a] - colorlist[b] })
+            if (!$("#best").hasClass("colorbox")) {
+                $("#best").addClass("colorbox");
+            }
+            let bestcolor = sortedKeys[0].split(",");
+            $("#best").css("background-color", `rgb(${bestcolor[0]}, ${bestcolor[1]}, ${bestcolor[2]})`);
+            $("#best").html(`<p>(${bestcolor[0]},${bestcolor[1]},${bestcolor[2]})</p>`)
+            $("#bestscore").text("Best (" + Math.round(colorlist[sortedKeys[0]]) + ")");
+            socket.emit("color-change", { "color": { r: bestcolor[0], g: bestcolor[1], b: bestcolor[2] } });
 
 
 
